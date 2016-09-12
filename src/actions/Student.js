@@ -1,7 +1,5 @@
-import { MODIFY_STUDENT, MODIFY_STUDENT_DONE } from '../reducers/Student';
-import { effects } from 'redux-saga';
-
-const { take, put } = effects;
+export const MODIFY_STUDENT = Symbol('modify student');
+export const MODIFY_STUDENT_DONE = Symbol('modify student done');
 
 export function modifyStudent() {
   return {
@@ -11,12 +9,4 @@ export function modifyStudent() {
       gender: 'male'
     }
   };
-}
-
-export function *watchStudentModify() {
-  while(true) {
-    console.log('start watching MODIFY_STUDENT action');
-    const student = yield take(MODIFY_STUDENT);
-    yield put({type: MODIFY_STUDENT_DONE, ...student.payload});
-  }
 }
