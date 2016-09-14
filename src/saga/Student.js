@@ -1,5 +1,6 @@
 import {MODIFY_STUDENT, MODIFY_STUDENT_DONE} from '../actions/Student';
 import { effects } from 'redux-saga';
+import {modifyStudentDone} from '../actions/Student';
 
 const {take, put, fork} = effects;
 
@@ -11,6 +12,6 @@ export function *watchStudentModify() {
   }
 }
 
-function *modifyStudent(student) {
-  yield put({type: MODIFY_STUDENT_DONE, ...student.payload})
+export function *modifyStudent(student) {
+  yield put(modifyStudentDone(student))
 }
