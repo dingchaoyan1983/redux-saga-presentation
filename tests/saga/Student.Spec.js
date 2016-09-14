@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import {expect} from 'chai';
 import {modifyStudent} from '../../src/saga/Student';
 import {modifyStudentDone} from '../../src/actions/Student';
@@ -10,7 +9,7 @@ describe('Students saga.', () => {
       name: 'dding1',
       sex: 'male'
     };
-    
+
     const modifyStudentGenerator = modifyStudent(student);
     expect(modifyStudentGenerator.next().value).to.deep.equal(put(modifyStudentDone(student)));
   })
